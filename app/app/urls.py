@@ -23,3 +23,8 @@ urlpatterns = [
 
     path('', include('static_page.urls', namespace='static_page')),
 ]
+
+
+urlpatterns += [
+    path('shop/', include('shop.urls', namespace='shop')),
+]
