@@ -5,6 +5,7 @@ from import_export.admin import ImportExportModelAdmin
 from django.contrib.auth.models import Permission
 
 from user_account.models import UserAccount
+from user_profile.admin import UserProfileUserAccountInline
 
 
 class CustomUserAccountAdmin(ImportExportModelAdmin, UserAdmin):
@@ -14,6 +15,7 @@ class CustomUserAccountAdmin(ImportExportModelAdmin, UserAdmin):
     list_filter = ('is_active',)
     search_fields = ('email',)
     readonly_fields = ['date_joined', 'last_login', ]
+    inlines = [UserProfileUserAccountInline, ]
     fieldsets = (
         (None, {'fields': ('email', 'password',)}),
         (_('Personal Info'), {
