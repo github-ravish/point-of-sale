@@ -1,0 +1,16 @@
+{% extends 'app_base.html' %}
+{% load static %}
+
+{% block style %}
+	<link rel="stylesheet"
+		  href="{% static 'user_account/css/activation.css' %}">
+{% endblock style %}
+
+{% block content %}
+	<div class="content" id="container-fluid">
+		<div class="row activation-body justify-content-center activation-body-height">
+			<h1 class="activation-text">Please click on the activation link sent to your email to confirm the email.</h1>
+			<small class="text-muted">Please check the spam folder.</small>
+		</div>
+	</div>
+{% endblock content %}

@@ -1,0 +1,64 @@
+{% extends 'app_base.html' %}
+{% load static %}
+
+{% block style %}
+	<link rel="stylesheet"
+		  href="{% static 'user_account/css/profile/home.css' %}">
+{% endblock style %}
+
+{% block content %}
+	<div class="content" id="container-fluid">
+		<div class="row">
+			<div class="col-md-6">
+
+				<div class="card user-profile-card">
+					<div class="user-profile-card-head">
+						Referral Code
+					</div>
+					<hr class="profile-hr">
+					<div class="user-profile-card-body">
+						<div class="user-profile-card-text">
+							Reffer a friend and get 10% whenever your friend buys a product.<br>
+							<input id="referral-code-input" type="text" value="{{ request.scheme }}://{{ request.get_host }}/account/signup/{{ user.user_profile.get_referral_code }}/" readonly>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-6">
+				<div class="card user-profile-card">
+					<div class="user-profile-card-head">
+						Settings
+					</div>
+					<div class="user-profile-card-body">
+						<table class="table">
+							<tbody>
+								<tr>
+									<td>First Name:</td>
+									<td>{{user_detail.first_name}}</td>
+								</tr>
+								<tr>
+									<td>Last Name:</td>
+									<td>{{user_detail.last_name}}</td>
+								</tr>
+								<tr>
+									<td>Email:</td>
+									<td>{{user_detail.email}}</td>
+								</tr>
+								<tr>
+									<td>Mobile Number:</td>
+									<td>{{user_detail.phone}}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="user-profile-card-foot text-right">
+						<a role="button" class="btn btn-outline-primary btn-sm"
+							href={% url 'account:change_password' %}>Change Password</a>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+{% endblock content %}

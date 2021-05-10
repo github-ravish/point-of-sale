@@ -1,0 +1,16 @@
+.activation-body {
+	max-width: 700px;	
+	background-color: rgba(54, 54, 54, 0.2);
+	border-radius: 5px;
+	margin: auto;
+}
+
+.activation-body-height {
+	height: 300px;
+}
+
+.activation-text {
+	text-align: center;
+	margin: auto;
+	font-size: 20px;
+}

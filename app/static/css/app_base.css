@@ -1,0 +1,94 @@
+* {
+	font-family: 'Merriweather', 'serif';
+}
+
+a {
+	text-decoration: none !important;
+	cursor: pointer;
+	color: rgb(77, 76, 76);
+}
+
+a:hover {
+	text-decoration: none !important;
+	cursor: pointer;
+	color: rgb(77, 76, 76);
+}
+
+.password-toggle:hover {
+	cursor: pointer;
+}
+
+#container-fluid {
+	background-color: rgb(238, 238, 238);
+	background-position: center;
+	background-repeat: no-repeat;
+	padding: 40px 20px 20px 20px;
+}
+
+.asteriskField {
+	display: none;
+}
+
+#container-fluid.has-overlay::after {
+    content: "";
+    display: block;
+    position: fixed;
+    padding: 100px 0;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+	background-color: rgba(0,0,0,0.4);
+	z-index: 3;
+}
+
+
+h1 {
+	font-size: 24px;
+	font-weight: bold;
+}
+
+h2 {
+	font-size: 18px;
+}
+
+tr:hover {
+	cursor: pointer;
+}
+
+/* hr with text center */
+
+.separator {
+	display: flex;
+	align-items: center;
+	text-align: center;
+	color:rgb(218, 218, 216);
+	margin-top: 10px;
+	margin-bottom: 15px;
+}
+  
+.separator::before,
+.separator::after {
+	content: '';
+	flex: 1;
+	border-bottom: 1px solid rgb(218, 218, 216);
+}
+  
+.separator:not(:empty)::before {
+	margin-right: .25em;
+}
+  
+.separator:not(:empty)::after {
+	margin-left: .25em;
+}
+
+@media only screen and (max-width: 576px) {
+	h1 {
+		font-size: 20px;
+		font-weight: bold;
+	}
+	
+	h2 {
+		font-size: 14px;
+	}
+}

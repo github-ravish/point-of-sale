@@ -1,0 +1,53 @@
+{% load static %}
+
+{% block navbar-left %}
+	<div class="app__navbar-left" id="app__navbar-left">
+		<ul class="app__navbar-left-ul">
+			<li class="app__navbar-left-item">
+				
+				<a class="app__navbar-left-link" href="">
+					<span class="app__left-nav-button-icon material-icons material-icons-outlined">
+						home
+					</span>
+					Home
+				</a>
+			</li>
+			<li class="app__navbar-left-dropdown">
+				<li class="app__navbar-left-item">
+					<a class="app__navbar-left-link" onclick="navbarLeftDropdownToggle('app__navbar-left-ul-1')">					
+						<span class="app__left-nav-button-icon material-icons material-icons-outlined">
+							apps
+						</span>
+						Dropdown
+						<span class="app__left-nav-button-icon material-icons material-icons-outlined">
+							expand_more
+						</span>
+					</a>
+				</li>
+				<ul class="app__navbar-left-ul app__navbar-left-ul-1">
+					<li class="app__navbar-left-item">
+						<a class="app__navbar-left-link" href="">Link 1</a>
+					</li>
+					<li class="app__navbar-left-item">
+						<a class="app__navbar-left-link" href="">Link 2</a>
+					</li>
+				</ul>
+			</li>
+			
+		</ul>
+		<hr style="width: 80%;">
+		<ul class="app__navbar-left-ul">
+
+			<li class="app__navbar-left-item">
+				
+				<a class="app__navbar-left-link" href="">
+					<span class="app__left-nav-button-icon material-icons material-icons-outlined">
+						home
+					</span>
+					Home
+				</a>
+			</li>
+
+		</ul>
+	</div>
+{% endblock navbar-left %}

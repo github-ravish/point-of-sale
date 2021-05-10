@@ -1,0 +1,43 @@
+#signin-card {
+	max-width: 500px;
+	margin: auto;
+	margin-top: 5%;
+}
+
+.google-signin {
+	font-size: 15px;
+	width: 98%;
+	border-radius: 5px;
+	padding: 8px;
+	margin: 10px 0px 0px 0px;
+	background-color: rgb(199, 4, 4);
+	border: none;
+	color: white;
+}
+
+.facebook-signin {
+	font-size: 15px;
+	width: 98%;
+	border-radius: 5px;
+	padding: 8px;
+	margin: 10px 0px 0px 0px;
+	background-color: rgb(70, 131, 245);
+	border: none;
+	color: white;
+}
+
+.facebook-signin-right {
+	text-align: right;
+}
+
+@media only screen and (max-width: 576px) {
+	.facebook-signin-right {
+		text-align: center;
+	}
+	.google-signin-left {
+		text-align: center;
+	}
+	.facebook-signin, .google-signin {
+		width: 100%;
+	}
+}

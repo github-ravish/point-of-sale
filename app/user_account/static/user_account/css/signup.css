@@ -1,0 +1,43 @@
+#signup-card {
+	max-width: 550px;
+	margin: auto;
+	margin-top: 5%;
+}
+
+.google-signup {
+	font-size: 15px;
+	width: 98%;
+	border-radius: 5px;
+	padding: 8px;
+	margin: 10px 0px 0px 0px;
+	background-color: rgb(199, 4, 4);
+	border: none;
+	color: white;
+}
+
+.facebook-signup {
+	font-size: 15px;
+	width: 98%;
+	border-radius: 5px;
+	padding: 8px;
+	margin: 10px 0px 0px 0px;
+	background-color: rgb(70, 131, 245);
+	border: none;
+	color: white;
+}
+
+.facebook-signup-right {
+	text-align: right;
+}
+
+@media only screen and (max-width: 576px) {
+	.facebook-signup-right {
+		text-align: center;
+	}
+	.google-signup-left {
+		text-align: center;
+	}
+	.facebook-signup, .google-signup {
+		width: 100%;
+	}
+}

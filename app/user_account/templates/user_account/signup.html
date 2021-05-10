@@ -1,0 +1,45 @@
+{% extends 'app_base.html' %}
+{% load static %}
+{% load socialaccount %}
+{% load crispy_forms_tags %}
+
+{% block style %}
+	<link rel="stylesheet"
+		  href="{% static 'user_account/css/signup.css' %}">
+{% endblock style %}
+
+{% block content %}
+<div class="content" id="container-fluid">
+	<div class="card shadow-sm rounded" id="signup-card">
+		<div class="card-body">
+			<h1>Sign up with</h1>
+			<div class="row">
+				<div class="col-sm-6 google-signup-left">
+					<button class="google-signup" href="{% provider_login_url 'google' %}"><i class="fab fa-google mx-2"></i>Sign up with Google</button>
+				</div>
+				<div class="col-sm-6 facebook-signup-right">
+					<button class="facebook-signup" href="{% provider_login_url 'facebook' method='oauth2' %}"><i class="fab fa-facebook mx-2"></i>Sign up with Facebook</button>
+				</div>
+			</div>
+
+			<div class="separator">or</div>
+
+			<form method="post">
+				{% crispy form %}
+				<div class="row">
+					<div class="col-6">
+						<a href="{% url 'user_account:login' %}" class="btn btn-light">Sign in instead.</a>
+					</div>
+					<div class="col-6 text-right">
+						<button type="submit" class="btn btn-primary">Sign up</button>
+					</div>
+				</div>			
+			</form>
+		</div>
+	</div>
+</div>
+{% endblock content %}
+
+{% block script %}
+
+{% endblock script %}

@@ -1,0 +1,25 @@
+FROM python:3.8
+
+ENV PATH="/usr/src/scripts:${PATH}"
+# create and set working directory
+RUN mkdir /usr/src/app
+RUN mkdir /usr/src/staticfiles
+RUN mkdir /usr/src/scripts
+WORKDIR /usr/src/app
+
+# set default environment variables
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
+
+# Add current directory code to working directory
+ADD ./app .
+COPY requirements.txt .
+
+# install environment dependencies
+RUN pip install --upgrade pip && pip install -r requirements.txt
+
+COPY ./scripts /usr/src/scripts/
+
+RUN ls /usr/src/scripts/
+
+RUN chmod +x /usr/src/scripts/*

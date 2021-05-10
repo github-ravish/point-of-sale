@@ -1,0 +1,24 @@
+{% extends 'app_base.html' %}
+{% load static %}
+
+{% block style %}
+	<link rel="stylesheet"
+		  href="{% static 'user_account/css/activation.css' %}">
+{% endblock style %}
+
+{% block content %}
+<div class="content" id="container-fluid">
+	{% if validlink %}
+			<div class="row justify-content-center activation-body activation-body-height">
+				<h1 class="activation-text">Account Activated Succesfully Please Login.</h1>
+			</div>
+			<div class="row justify-content-center activation-body">
+				<a class="btn btn-link" href="{% url 'user_account:login' %}">Login</a>
+			</div>
+	{% else %}
+			<div class="row justify-content-center activation-body activation-body-height">
+				<h1 class="activation-text">Account Activation Failed.</h1>
+			</div>		
+	{% endif %}
+</div>
+{% endblock content %}

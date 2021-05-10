@@ -1,0 +1,45 @@
+{% extends 'app_base.html' %}
+{% load static %}
+{% load socialaccount %}
+{% load crispy_forms_tags %}
+
+{% block style %}
+	<link rel="stylesheet"
+		  href="{% static 'user_account/css/login.css' %}">
+{% endblock style %}
+
+{% block content %}
+<div class="content" id="container-fluid">
+	<div class="card shadow-sm rounded" id="signin-card">
+		<div class="card-body">
+			<h1>Sign in with</h1>
+			<div class="row">
+				<div class="col-sm-6 google-signin-left">
+					<button class="google-signin" href="{% provider_login_url 'google' %}"><i class="fab fa-google mx-2"></i>Sign in with Google</button>
+				</div>
+				<div class="col-sm-6 facebook-signin-right">
+					<button class="facebook-signin" href="{% provider_login_url 'facebook' method='oauth2' %}"><i class="fab fa-facebook mx-2"></i>Sign in with Facebook</button>
+				</div>
+			</div>
+
+			<div class="separator">or</div>
+
+			<form method="post">
+				{% crispy form %}
+				<div class="row">
+					<div class="col-6">
+						<a style="padding-left: 0px" href="{% url 'user_account:reset_password_initiate' %}" class="btn btn-link text-left">Forgot password?</a>
+					</div>
+					<div class="col-6 text-right">
+						<button type="submit" class="btn btn-primary">Sign in</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+{% endblock content %}
+
+{% block script %}
+
+{% endblock script %}

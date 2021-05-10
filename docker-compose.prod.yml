@@ -1,0 +1,58 @@
+version: '3.7'
+
+services:
+    app:
+        build:
+            context: .
+            dockerfile: Dockerfile.dev
+        ports:
+            - "8000:8000"
+        restart: on-failure
+        command: /bin/sh -c "entrypoint.prod.sh"
+        volumes:
+            - static_volume:/usr/src/staticfiles
+        env_file: 
+            - ./.env.prod
+        depends_on:
+            - db
+            - redis
+
+    db:
+        image: postgres:12.0-alpine
+        restart: on-failure
+        volumes:
+            - postgres_data:/usr/src/postgresql/data/
+        env_file: 
+            - ./.env.prod
+        ports:
+            - "5433:5432"
+
+    celery:
+        build:
+            context: .
+            dockerfile: Dockerfile.dev
+        command: celery -A app worker -l INFO
+        volumes:
+            - ./app:/app
+        env_file:
+            - ./.env.prod
+        depends_on:
+            - db
+            - app
+            - redis
+    
+    redis:
+        image: redis:5-alpine
+
+    nginx:
+        build: ./nginx
+        volumes:
+            - static_volume:/home/staticfiles
+        ports:
+            - "80:80"
+        depends_on:
+            - app
+
+volumes:
+    postgres_data:
+    static_volume:
