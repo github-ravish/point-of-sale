@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     # Custom apps
     'user_account',
     'static_page',
+    'user_profile',
 ]
 
 MIDDLEWARE = [
