@@ -7,11 +7,21 @@ from django.contrib.auth import get_user_model
 from django.conf import settings
 
 
+from shop.models.shop import Shop
+
+
 class UserProfile(models.Model):
     """ User model for the project """
     OTP_CATEGORY = [
         ('MV', 'Mobile Verification')
     ]
+    ROLE_CHOICE = (
+        (1, 'Basic User'),
+        (2, 'Owner'),
+        (3, 'Manager'),
+        (4, 'POS'),
+    )
+
     user_account = models.OneToOneField(
         get_user_model(),
         on_delete=models.SET_NULL,
@@ -26,9 +36,20 @@ class UserProfile(models.Model):
     otp_category = models.CharField(
         max_length=5,
         choices=OTP_CATEGORY,
-        default="MV"
+        default="MV",
     )
     otp = models.IntegerField(null=True)
+
+    shop = models.ForeignKey(
+        Shop,
+        on_delete=models.SET_NULL,
+        null=True,
+        related_name="shop_staff"
+    )
+    role = models.PositiveSmallIntegerField(
+        choices=ROLE_CHOICE,
+        default=1
+    )
 
     def get_referral_code(self):
         return urlsafe_base64_encode(force_bytes(self.user_account.id))
