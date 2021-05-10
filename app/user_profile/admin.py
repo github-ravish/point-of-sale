@@ -11,3 +11,6 @@ class UserProfileShopInline(admin.StackedInline):
 class UserProfileUserAccountInline(admin.StackedInline):
     model = UserProfile
     fk_name = 'user_account'
+    readonly_fields = ('user_account', 'referred_by',
+                       'otp_category', 'otp', 'shop', 'role')
+    can_delete = False
