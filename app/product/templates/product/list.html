@@ -1,0 +1,44 @@
+{% extends 'app_base.html' %}
+{% load static %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'shop/css/list.css' %}">
+{% endblock style %}
+
+{% block content %}
+<div class="content" id="container-fluid">
+	<div class="card app__product-list">
+
+		{% if product_list %}
+		<table class="table table-hover">
+			<thead class="thead-dark">
+				<tr>
+					<th scope="col">#</th>
+					<th scope="col">Product Name</th>
+					<th scope="col">Quantity</th>
+					<th scope="col">Cost Price</th>
+					<th scope="col">Selling Price</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for product in product_list %}
+				<tr>
+					<th scope="row">{{ forloop.counter }}</th>
+					<td>{{ product.name }}</td>
+					<td>{{ product.quantity }}</td>
+					<td>{{ product.cost_price }}</td>
+					<td>{{ product.selling_price }}</td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+		{% endif %}
+
+
+	</div>
+</div>
+{% endblock content %}
+
+{% block script %}
+<script src="{% static 'shop/scripts/list.js' %}"></script>
+{% endblock script %}
