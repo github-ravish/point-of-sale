@@ -40,16 +40,5 @@ class UserProfile(models.Model):
     )
     otp = models.IntegerField(null=True)
 
-    shop = models.ForeignKey(
-        Shop,
-        on_delete=models.SET_NULL,
-        null=True,
-        related_name="shop_staff"
-    )
-    role = models.PositiveSmallIntegerField(
-        choices=ROLE_CHOICE,
-        default=1
-    )
-
     def get_referral_code(self):
         return urlsafe_base64_encode(force_bytes(self.user_account.id))

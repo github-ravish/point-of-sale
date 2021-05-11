@@ -2,6 +2,12 @@ import uuid
 from django.db import models
 from django.contrib.auth import get_user_model
 
+from .shop_staff import ShopStaff
+from shop.managers import (
+    ActiveShopManager,
+    OwnerShopManager
+)
+
 
 class Shop(models.Model):
 
@@ -17,9 +23,18 @@ class Shop(models.Model):
         editable=False
     )
 
+    shop_staff = models.ManyToManyField(
+        ShopStaff,
+        related_name='user_shop'
+    )
+
     is_active = models.BooleanField(
         default=False
     )
+
+    objects = models.Manager()
+    active_objects = ActiveShopManager()
+    owner_objects = OwnerShopManager()
 
     def __str__(self):
         return self.name
