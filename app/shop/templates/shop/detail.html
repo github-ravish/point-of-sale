@@ -1,0 +1,63 @@
+{% extends 'app_base.html' %}
+{% load static %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'shop/css/detail.css' %}">
+{% endblock style %}
+
+{% block content %}
+<div class="content" id="container-fluid">
+
+	<div class="card app__shop-detail p-3 shadow">
+		<div class="card p-3 shadow">
+
+			<table class="table table-hover table-borderless">
+				<tbody>
+					<tr>
+						<td>Name:</td>
+						<td>{{ shop.name }}</td>
+					</tr>
+					<tr>
+						<td>Address:</td>
+						<td>{{ shop.area }}, {{ shop.city }}, {{ shop.state }}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+	<div class="card app__shop-staff-detail mt-3 p-3 shadow">
+		<div class="card p-3 shadow">
+			<table class="table table-hover table-responsive">
+				<thead class="thead-dark">
+					<tr>
+						<th scope="col">#</th>
+						<th scope="col">User</th>
+						<th scope="col">Role</th>
+						<th scope="col">Attendance</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for staff in shop.shop_staff.all %}
+					<tr class="app__shop-staff-row" data-form-url="">
+						<th scope="row">{{ forloop.counter }}</th>
+						<td>{{ staff }}</td>
+						<td>{{ staff.get_role_display }}</td>
+						<td>95%</td>
+					</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+
+	<div class="card app__shop-order-list">
+
+	</div>
+</div>
+{% endblock content %}
+
+{% block script %}
+<script src="{% static 'order/scripts/list.js' %}"></script>
+{% endblock script %}

@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from django.views.generic import (
     CreateView,
-    ListView
+    ListView,
+    DetailView
 )
 from django.urls import reverse_lazy
 from django.conf import settings
@@ -36,3 +37,19 @@ class ShopListView(RoleRequiredMixin, ListView):
             shop_staff__user_account=self.request.user,
             shop_staff__role__in=self.roles_required
         )
+
+
+class ShopDetailView(RoleRequiredMixin, DetailView):
+    template_name = "shop/detail.html"
+    roles_required = [
+        settings.SHOP_ROLE_CHOICE_REVERSE.get('Owner'),
+    ]
+
+    def get_object(self, *args, **kwargs):
+        shop_slug = self.kwargs.get('slug')
+        shop = Shop.custom_manager.get_object_or_none(
+            slug=shop_slug,
+            shop_staff__user_account=self.request.user,
+            shop_staff__role__in=self.roles_required,
+        )
+        return shop

@@ -22,7 +22,7 @@
 			</thead>
 			<tbody>
 				{% for shop in shop_list %}
-				<tr class="app__shop-list-row" data-form-url="">
+				<tr class="app__shop-list-row" data-url="{% url 'shop:detail' slug=shop.slug %}">
 					<th scope="row">{{ forloop.counter }}</th>
 					<td>{{ shop.name }}, {{ shop.area }}</td>
 				</tr>
