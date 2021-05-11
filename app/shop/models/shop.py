@@ -4,8 +4,7 @@ from django.contrib.auth import get_user_model
 
 from .shop_staff import ShopStaff
 from shop.managers import (
-    ActiveShopManager,
-    OwnerShopManager
+    CustomManager,
 )
 
 
@@ -33,8 +32,7 @@ class Shop(models.Model):
     )
 
     objects = models.Manager()
-    active_objects = ActiveShopManager()
-    owner_objects = OwnerShopManager()
+    custom_manager = CustomManager()
 
     def __str__(self):
         return self.name
