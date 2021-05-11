@@ -5,8 +5,15 @@ SHOP_OWNER = 1
 SHOP_MANAGER = 2
 SHOP_POS = 3
 
+
 SHOP_ROLE_CHOICE = (
-    (SHOP_OWNER, 'Owner'),
-    (SHOP_MANAGER, 'Manager'),
-    (SHOP_POS, 'POS'),
+    (1, 'Owner'),
+    (2, 'Manager'),
+    (3, 'POS'),
 )
+
+SHOP_ROLE_CHOICE_REVERSE = {
+    'Owner': 1,
+    'Manager': 2,
+    'POS': 3,
+}
