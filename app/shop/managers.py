@@ -11,27 +11,16 @@ class ActiveShopManager(Manager):
             return None
 
 
-class OwnerShopManager(Manager):
+class CustomManager(Manager):
+
+    def get_queryset(self):
+        return super().get_queryset().filter(
+            is_active=True,
+        )
 
     def get_object_or_none(self, *args, **kwargs):
         try:
             return self.model.objects.get(
-                is_active=True,
-                shop_staff__role=2,
-                *args,
-                **kwargs
-            )
-        except:
-            return None
-
-
-class POSShopManager(Manager):
-
-    def get_object_or_none(self, *args, **kwargs):
-        try:
-            return self.model.objects.get(
-                is_active=True,
-                shop_staff__role=4,
                 *args,
                 **kwargs
             )
