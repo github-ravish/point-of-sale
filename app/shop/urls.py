@@ -2,11 +2,13 @@ from django.urls import path
 
 
 from .views import (
-    ShopCreateView
+    ShopCreateView,
+    ShopListView
 )
 
 app_name = 'shop'
 
 urlpatterns = [
-    path('create/', ShopCreateView.as_view(), name='create')
+    path('create/', ShopCreateView.as_view(), name='create'),
+    path('list/', ShopListView.as_view(), name='list'),
 ]
