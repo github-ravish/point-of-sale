@@ -1,8 +1,12 @@
 from django.urls import path
-from django.contrib.auth import views as auth_views
 
+
+from .views import (
+    ShopCreateView
+)
 
 app_name = 'shop'
 
 urlpatterns = [
+    path('create/', ShopCreateView.as_view(), name='create')
 ]

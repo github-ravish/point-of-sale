@@ -1,0 +1,8 @@
+.app__shop-create-card-wrapper, .app__shop-create-card {
+	padding: 15px;
+}
+
+.app__shop-create-card-wrapper {
+	max-width: 600px;
+	margin: auto;
+}
