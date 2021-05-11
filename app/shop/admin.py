@@ -11,7 +11,7 @@ class ShopStaffInline(admin.TabularInline):
 class ShopAdmin(admin.ModelAdmin):
     readonly_fields = ('slug',)
     inlines = [ShopStaffInline, ]
-    list_display = ('name', 'get_address')
+    list_display = ('name', 'get_address', 'is_active')
     exclude = ('shop_staff',)
 
     def get_address(self, shop):
