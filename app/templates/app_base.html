@@ -1,4 +1,4 @@
-{% load permission %}
+{% load shop_role %}
 <!DOCTYPE html>
 {% load static %}
 <html>
@@ -63,7 +63,11 @@
 
 	{% include 'navbars/navbar_top.html' %}
 
+	{% if request.user|has_shop_role:"Owner" %}
+	{% include 'navbars/app_base_shop_owner_navbar_left.html' %}
+	{% else %}
 	{% include 'navbars/app_base_navbar_left.html' %}
+	{% endif %}
 
 	<div class="modal fade" tabindex="-1" role="dialog" id="modal">
 		<div class="modal-dialog" role="document">
