@@ -29,3 +29,7 @@ urlpatterns += [
     path('shop/', include('shop.urls', namespace='shop')),
     path('product/', include('product.urls', namespace='product')),
 ]
+
+urlpatterns += [
+    path('api/product/', include('product.api.urls', namespace='product_api'))
+]
