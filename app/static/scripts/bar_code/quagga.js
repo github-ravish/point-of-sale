@@ -1,5 +1,4 @@
 
-innerWidth = $('.content').css('width').slice(0, -2) - 20;
 Quagga.init({
 	inputStream: {
 		name: "Live",
