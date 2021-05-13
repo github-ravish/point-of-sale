@@ -3,11 +3,13 @@ from django.contrib.auth import views as auth_views
 
 
 from .views import (
-    ProductListView
+    ProductCreateView,
+    ProductListView,
 )
 
 app_name = 'product'
 
 urlpatterns = [
-    path('list/<slug:slug>/', ProductListView.as_view(), name='list'),
+    path('create/<slug:shop_slug>/', ProductCreateView.as_view(), name='create'),
+    path('list/<slug:shop_slug>/', ProductListView.as_view(), name='list'),
 ]

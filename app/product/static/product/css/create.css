@@ -1,0 +1,31 @@
+.app__product-create-card-wrapper, .app__product-create-card {
+	padding: 15px;
+}
+
+.app__product-create-card-wrapper {
+	max-width: 600px;
+	margin: auto;
+}
+
+#scanner-container {
+	position: relative; 
+	padding: 10px; 
+	clear:both;
+}
+
+canvas.drawing, canvas.drawingBuffer {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	height: 100%;
+	width: 100%;
+}
+
+
+.app__product-modal-content {
+	background-color: #fefefe;
+	margin: 15% auto; /* 15% from the top and centered */
+	padding: 0px;
+	border: 1px solid #888;
+	width: 95%; /* Could be more or less, depending on screen size */
+}
