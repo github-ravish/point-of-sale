@@ -7,7 +7,7 @@ from django.conf import settings
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 
-class HomeView(View):
+class HomeView(LoginRequiredMixin, View):
     template_name = 'static_page/home.html'
 
     def get(self, request, *args, **kwargs):
