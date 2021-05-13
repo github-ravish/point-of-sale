@@ -7,5 +7,6 @@ app_name = 'product_api'
 
 
 urlpatterns = [
-    path('manage/<slug:slug>/', ProductRetrieveUpdateView.as_view(), name="manage"),
+    path('manage/<slug:shop_slug>/<slug:product_slug>/',
+         ProductRetrieveUpdateView.as_view(), name="manage"),
 ]

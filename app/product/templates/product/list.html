@@ -2,12 +2,13 @@
 {% load static %}
 
 {% block style %}
-<link rel="stylesheet" href="{% static 'shop/css/list.css' %}">
+<link rel="stylesheet" href="{% static 'product/css/list.css' %}">
+<link rel="stylesheet" href="{% static 'product/css/modal.css' %}">
 {% endblock style %}
 
 {% block content %}
 <div class="content" id="container-fluid">
-	<div class="card app__product-list">
+	<div class="card app__product-list p-3 shadow rounded">
 
 		{% if product_list %}
 		<table class="table table-hover">
@@ -21,24 +22,38 @@
 				</tr>
 			</thead>
 			<tbody>
+				{% csrf_token %}
 				{% for product in product_list %}
-				<tr>
+				<tr class="app__product-list-row" id="{{ product.slug }}"
+					data-url="{% url 'product_api:manage' shop_slug=product.shop.slug product_slug=product.slug %}">
 					<th scope="row">{{ forloop.counter }}</th>
-					<td>{{ product.name }}</td>
-					<td>{{ product.quantity }}</td>
-					<td>{{ product.cost_price }}</td>
-					<td>{{ product.selling_price }}</td>
+					<td class="product-name">{{ product.name }}</td>
+					<td class="product-quantity">{{ product.quantity }}</td>
+					<td class="product-cost-price">{{ product.cost_price }}</td>
+					<td class="product-selling-price">{{ product.selling_price }}</td>
 				</tr>
 				{% endfor %}
 			</tbody>
 		</table>
+		{% else %}
+		<h1>Please add product first.</h1>
 		{% endif %}
 
-
 	</div>
+
+	<div id="app__product-modal" class="modal">
+		<div class="app__product-modal-content">
+			<span class="close text-right" onclick="closeModal()">&times;</span>
+			<div class="app__product-modal-body">
+			</div>
+		</div>
+	</div>
+
 </div>
 {% endblock content %}
 
 {% block script %}
-<script src="{% static 'shop/scripts/list.js' %}"></script>
+<script src="{% static 'product/scripts/product.js' %}"></script>
+<script src="{% static 'product/scripts/modal.js' %}"></script>
+<script src="{% static 'product/scripts/list.js' %}"></script>
 {% endblock script %}
