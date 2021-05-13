@@ -45,8 +45,6 @@ Quagga.init({
 	}
 
 	console.log("Initialization finished. Ready to start");
-	Quagga.start();
-
 });
 
 Quagga.onProcessed(function (result) {
