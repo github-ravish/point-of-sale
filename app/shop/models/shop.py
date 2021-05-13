@@ -24,7 +24,7 @@ class Shop(models.Model):
 
     shop_staff = models.ManyToManyField(
         ShopStaff,
-        related_name='user_shop'
+        related_name='related_shop'
     )
 
     is_active = models.BooleanField(
