@@ -3,7 +3,7 @@
 	position: fixed;
 	width: 0px;
 	left: 0px;
-	z-index: 4;
+	z-index: 99;
 	overflow-x: hidden;
 	padding-top: 20px;
 	transition: 0.5s all;
