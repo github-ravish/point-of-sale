@@ -1,0 +1,61 @@
+{% extends 'app_base.html' %}
+{% load static %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'order/css/list.css' %}">
+{% endblock style %}
+
+{% block content %}
+<div class="content" id="container-fluid">
+	<div class="row mb-3">
+		<div class="col-12 text-right">
+			<a class="btn btn-lg btn-success" href="{% url 'order:create' shop_slug=shop_slug %}">Create Order</a>
+		</div>
+	</div>
+	<div class="card app__order-list">
+		<table class="table table-hover">
+			<thead class="thead-dark">
+				<tr>
+					<th scope="col">#</th>
+					<th scope="col">Order Id</th>
+					<th scope="col">Total Value</th>
+					<th scope="col">Placed At</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for order in order_list %}
+				<tr class="app__order-list-row" data-trigger="{{ order.order_id }}" data-url="">
+					<th scope="row">{{ forloop.counter }}</th>
+					<td>{{ order.order_id }}</td>
+					<td>{{ order.price }}</td>
+					<td>{{ order.created_at }}</td>
+				</tr>
+				<tr class="app_order-list-product-row" id="{{ order.order_id }}">
+					<td colspan="4">
+						<table class="table mb-0">
+							<tbody>
+								<tr>
+									<td>Product Name</td>
+									<td>Quantity</td>
+								</tr>
+
+								{% for item in order.items.all %}
+								<tr>
+									<td>{{ item.product.name }}</td>
+									<td>{{ item.quantity }}</td>
+								</tr>
+								{% endfor %}
+							</tbody>
+						</table>
+					</td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+</div>
+{% endblock content %}
+
+{% block script %}
+<script src="{% static 'order/scripts/list.js' %}"></script>
+{% endblock script %}
