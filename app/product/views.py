@@ -37,6 +37,10 @@ class ProductCreateView(RoleRequiredMixin, CreateView):
 
 class ProductListView(RoleRequiredMixin, ListView):
     template_name = 'product/list.html'
+    roles_required = [
+        settings.SHOP_ROLE_CHOICE_REVERSE.get('Owner'),
+        settings.SHOP_ROLE_CHOICE_REVERSE.get('Manager'),
+    ]
 
     def get_queryset(self):
         shop_slug = self.kwargs.get('shop_slug')
