@@ -9,7 +9,7 @@
 <div class="content" id="container-fluid">
 	<div class="row mb-3">
 		<div class="col-6">
-			<a class="btn btn-lg btn-info" href="{% url 'order:create' shop_slug=shop.slug %}">Orders</a>
+			<a class="btn btn-lg btn-info" href="{% url 'order:list' shop_slug=shop.slug %}">Orders</a>
 		</div>
 		<div class="col-6 text-right">
 			<a class="btn btn-lg btn-primary" href="{% url 'product:list' shop_slug=shop.slug %}">Inventory</a>
