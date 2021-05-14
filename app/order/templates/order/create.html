@@ -1,0 +1,48 @@
+{% extends 'app_base.html' %}
+{% load static %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'order/css/add.css' %}">
+<link rel="stylesheet" href="{% static 'order/css/modal.css' %}">
+{% endblock style %}
+
+{% block content %}
+<div class="content" id="container-fluid">
+	<div class="product-search">
+		<div class="input-group mb-3">
+			<input type="text" class="form-control" id="product-id" placeholder="Product Id">
+			<div class="input-group-append">
+				<span class="input-group-text material-icons material-icons-outlined" id="product-search-button"
+					onclick="getProductByInput()">search
+				</span>
+			</div>
+		</div>
+	</div>
+	<div id="scanner-container"></div>
+
+	<div class="card cart-card" data-url="{% url 'order_api:create' shop_slug=shop_slug %}">
+		{% csrf_token %}
+		<div class="cart">
+		</div>
+	</div>
+
+	<div id="cart-add-product-modal" class="modal">
+
+		<div class="modal-content">
+			<span class="close text-right" onclick="closeModal()">&times;</span>
+			<div class="cart-add-modal-content">
+			</div>
+		</div>
+
+	</div>
+
+</div>
+{% endblock content %}
+
+{% block script %}
+<script src="{% static 'order/scripts/product.js' %}"></script>
+<script src="{% static 'order/scripts/edit.js' %}"></script>
+<script src="{% static '/scripts/bar_code/quagga.js' %}"></script>
+<script src="{% static 'order/scripts/add.js' %}"></script>
+<script src="{% static 'order/scripts/modal.js' %}"></script>
+{% endblock script %}

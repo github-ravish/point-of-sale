@@ -1,0 +1,43 @@
+#scanner-container {
+	position: relative; 
+	padding: 10px; 
+	clear:both;
+}
+
+canvas.drawing, canvas.drawingBuffer {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	height: 100%;
+	width: 100%;
+	z-index: 4;
+}
+
+.product-search {
+	max-width: 500px;
+	padding-top: 10px;
+	margin: auto;
+}
+
+#product-search-button:hover {
+	background-color: rgb(204, 202, 202);
+	cursor: pointer;
+}
+
+.action-button-col {
+	width: 100px;
+}
+
+.cart-card {
+	margin: 10px;
+	padding: 10px;
+}
+
+.product-search {
+	padding: 10px;
+}
+
+#container-fluid {
+	padding-left: 0px !important;
+	padding-right: 0px !important;
+}
