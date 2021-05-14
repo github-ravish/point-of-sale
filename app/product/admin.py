@@ -4,4 +4,8 @@ from import_export.admin import ImportExportModelAdmin
 from product.models.product import Product
 
 
-admin.site.register(ImportExportModelAdmin, Product)
+class ProductAdmin(ImportExportModelAdmin, admin.ModelAdmin):
+    pass
+
+
+admin.site.register(Product, ProductAdmin)
