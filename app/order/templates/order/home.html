@@ -1,0 +1,33 @@
+{% extends 'app_base.html' %}
+{% load static %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'shop/css/list.css' %}">
+{% endblock style %}
+
+{% block content %}
+<div class="content" id="container-fluid">
+	<div class="card app__shop-list">
+		<table class="table table-hover">
+			<thead class="thead-dark">
+				<tr>
+					<th scope="col">#</th>
+					<th scope="col">Shop Name</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for shop in shop_list %}
+				<tr class="app__shop-list-row" data-url="{% url 'order:list' shop_slug=shop.slug %}">
+					<th scope="row">{{ forloop.counter }}</th>
+					<td>{{ shop.name }}, {{ shop.area }}</td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+</div>
+{% endblock content %}
+
+{% block script %}
+<script src="{% static 'shop/scripts/list.js' %}"></script>
+{% endblock script %}
