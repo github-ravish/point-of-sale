@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import (
     View,
     ListView
@@ -6,7 +6,24 @@ from django.views.generic import (
 from django.conf import settings
 
 from .models.order import Order
+from shop.models.shop import Shop
 from .permissions import RoleRequiredMixin
+
+
+class OrderHomeView(RoleRequiredMixin, ListView):
+    template_name = "order/home.html"
+    roles_required = [
+        settings.SHOP_ROLE_CHOICE_REVERSE.get('Owner'),
+        settings.SHOP_ROLE_CHOICE_REVERSE.get('Manager'),
+        settings.SHOP_ROLE_CHOICE_REVERSE.get('POS'),
+    ]
+
+    def get_queryset(self):
+        shop = Shop.custom_manager.filter(
+            shop_staff__user_account=self.request.user,
+            shop_staff__role__in=self.roles_required
+        )
+        return shop
 
 
 class OrderCreateView(RoleRequiredMixin, View):

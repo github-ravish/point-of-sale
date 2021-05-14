@@ -14,12 +14,17 @@ class RoleRequiredMixin(object):
             raise PermissionDenied
         else:
             if self.roles_required:
-                if not is_valid_uuid(shop_slug):
+                if shop_slug and not is_valid_uuid(shop_slug):
                     raise PermissionDenied
-                if not Shop.custom_manager.filter(
+                elif shop_slug and not Shop.custom_manager.filter(
                     shop_staff__user_account=request.user,
                     shop_staff__role__in=self.roles_required,
                     slug=shop_slug
+                ).exists():
+                    raise PermissionDenied
+                elif not Shop.custom_manager.filter(
+                    shop_staff__user_account=request.user,
+                    shop_staff__role__in=self.roles_required,
                 ).exists():
                     raise PermissionDenied
         return super(RoleRequiredMixin, self).dispatch(request, *args, **kwargs)
