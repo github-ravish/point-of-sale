@@ -32,5 +32,6 @@ urlpatterns += [
 ]
 
 urlpatterns += [
-    path('api/product/', include('product.api.urls', namespace='product_api'))
+    path('api/product/', include('product.api.urls', namespace='product_api')),
+    path('api/order/', include('order.api.urls', namespace='order_api')),
 ]
