@@ -30,6 +30,7 @@ class ShopListView(RoleRequiredMixin, ListView):
     template_name = "shop/list.html"
     roles_required = [
         settings.SHOP_ROLE_CHOICE_REVERSE.get('Owner'),
+        settings.SHOP_ROLE_CHOICE_REVERSE.get('Manager'),
     ]
 
     def get_queryset(self):
@@ -43,6 +44,7 @@ class ShopDetailView(RoleRequiredMixin, DetailView):
     template_name = "shop/detail.html"
     roles_required = [
         settings.SHOP_ROLE_CHOICE_REVERSE.get('Owner'),
+        settings.SHOP_ROLE_CHOICE_REVERSE.get('Manager'),
     ]
 
     def get_object(self, *args, **kwargs):

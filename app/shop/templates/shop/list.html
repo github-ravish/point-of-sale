@@ -1,5 +1,6 @@
 {% extends 'app_base.html' %}
 {% load static %}
+{% load shop_role %}
 
 {% block style %}
 <link rel="stylesheet" href="{% static 'shop/css/list.css' %}">
@@ -8,11 +9,13 @@
 {% block content %}
 <div class="content" id="container-fluid">
 	<div class="card app__shop-list">
+		{% if request.user|has_shop_role:"Owner" %}
 		<div class="row mb-3">
 			<div class="col-12 text-right">
 				<a class="btn btn-success" href="{% url 'shop:create' %}">Register Shop</a>
 			</div>
 		</div>
+		{% endif %}
 		<table class="table table-hover">
 			<thead class="thead-dark">
 				<tr>
