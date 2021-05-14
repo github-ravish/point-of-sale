@@ -63,8 +63,10 @@
 
 	{% include 'navbars/navbar_top.html' %}
 
-	{% if request.user|has_shop_role:"Owner" %}
+	{% if request.user|has_shop_role:"Owner,Manager" %}
 	{% include 'navbars/app_base_shop_owner_navbar_left.html' %}
+	{% elif request.user|has_shop_role:"POS" %}
+	{% include 'navbars/app_base_POS_navbar_left.html' %}
 	{% else %}
 	{% include 'navbars/app_base_navbar_left.html' %}
 	{% endif %}

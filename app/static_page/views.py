@@ -13,4 +13,6 @@ class HomeView(LoginRequiredMixin, View):
     def get(self, request, *args, **kwargs):
         if request.user.user_shop.filter(role=settings.SHOP_ROLE_CHOICE_REVERSE.get('Owner')).exists():
             return redirect('shop:list')
+        elif request.user.user_shop.filter(role=settings.SHOP_ROLE_CHOICE_REVERSE.get('POS')).exists():
+            return redirect('order:home')
         return render(request, self.template_name)
