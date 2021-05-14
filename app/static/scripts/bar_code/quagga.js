@@ -40,6 +40,7 @@ Quagga.init({
 }, function (err) {
 	if (err) {
 		console.log(err);
+		$('#scanner-container').css('display', "none");
 		return
 	}
 
