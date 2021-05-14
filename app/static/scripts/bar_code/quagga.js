@@ -1,3 +1,4 @@
+quaggaInitialize = false;
 
 Quagga.init({
 	inputStream: {
@@ -43,7 +44,7 @@ Quagga.init({
 		$('#scanner-container').css('display', "none");
 		return
 	}
-
+	quaggaInitialize = true;
 	console.log("Initialization finished. Ready to start");
 });
 
