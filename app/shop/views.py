@@ -7,6 +7,7 @@ from django.views.generic import (
 from django.urls import reverse_lazy
 from django.conf import settings
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.db.models import Sum
 
 
 from .models.shop import Shop
@@ -38,6 +39,14 @@ class ShopListView(RoleRequiredMixin, ListView):
             shop_staff__user_account=self.request.user,
             shop_staff__role__in=self.roles_required
         )
+
+    def get_context_data(self, **kwargs):
+        context = super(ShopListView, self).get_context_data(**kwargs)
+        shop_list = context['shop_list']
+        context['shop_list'] = shop_list.annotate(
+            gross_sales_val=Sum('shop_orders__price')
+        )
+        return context
 
 
 class ShopDetailView(RoleRequiredMixin, DetailView):

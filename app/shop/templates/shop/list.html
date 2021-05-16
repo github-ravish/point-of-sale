@@ -21,6 +21,7 @@
 				<tr>
 					<th scope="col">#</th>
 					<th scope="col">Shop Name</th>
+					<th scope="col">Gross Sales</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -28,6 +29,7 @@
 				<tr class="app__shop-list-row" data-url="{% url 'shop:detail' slug=shop.slug %}">
 					<th scope="row">{{ forloop.counter }}</th>
 					<td>{{ shop.name }}, {{ shop.area }}</td>
+					<td>{{ shop.gross_sales_val }}</td>
 				</tr>
 				{% endfor %}
 			</tbody>
