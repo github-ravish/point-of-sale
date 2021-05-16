@@ -22,7 +22,11 @@ class OrderSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Order
-        fields = ('items',)
+        fields = ('items', 'order_id', 'price')
+        extra_kwargs = {
+            'order_id': {'read_only': True},
+            'price': {'read_only': True},
+        }
 
     def create(self, validated_data):
         order_item_objects = []
