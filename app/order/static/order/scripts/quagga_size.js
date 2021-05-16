@@ -1,0 +1,1 @@
+innerWidth = $('.content').css('width').slice(0, -2) - 20;

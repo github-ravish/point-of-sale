@@ -18,6 +18,7 @@
 			</div>
 		</div>
 	</div>
+
 	<div id="scanner-container"></div>
 
 	<div class="card cart-card" data-url="{% url 'order_api:create' shop_slug=shop_slug %}">
@@ -40,9 +41,10 @@
 {% endblock content %}
 
 {% block script %}
+<script src="{% static 'order/scripts/quagga_size.js' %}"></script>
 <script src="{% static 'order/scripts/product.js' %}"></script>
 <script src="{% static 'order/scripts/edit.js' %}"></script>
-<script src="{% static '/scripts/bar_code/quagga.js' %}"></script>
 <script src="{% static 'order/scripts/add.js' %}"></script>
+<script src="{% static '/scripts/bar_code/quagga.js' %}"></script>
 <script src="{% static 'order/scripts/modal.js' %}"></script>
 {% endblock script %}

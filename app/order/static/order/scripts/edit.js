@@ -1,4 +1,4 @@
-innerWidth = $('.content').css('width').slice(0, -2) - 20;
+
 
 function editProduct(index) {
 	modal = document.getElementById("cart-add-product-modal");

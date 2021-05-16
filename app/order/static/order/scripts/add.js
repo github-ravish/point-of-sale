@@ -1,5 +1,12 @@
-if (quaggaInitialize == true) {
+function startScanner() {
 	Quagga.start();
+	Quagga.onDetected(function (result) {
+		code = result.codeResult.code;
+		if (code.length == 13) {
+			Quagga.stop();
+			editProduct(1);
+		}
+	});
 }
 
 var products = [
@@ -71,16 +78,14 @@ function addOrderBackend() {
 		dataType: "json",
 		contentType: "application/json; charset=utf-8",
 		success: function (data) {
-			console.log(data);
+			window.document.location = '/transaction/create/' + data.order_id + '/';
 		},
 		error: function (xhr, errmsg, err) {
 			console.log(xhr, errmsg, err)
 		},
-		beforeSend: function (xhr) {
-			console.log(this.data)
-		}
 	});
 }
 
 
 $(document).onload = updateCart();
+$(document).onload = startScanner();
