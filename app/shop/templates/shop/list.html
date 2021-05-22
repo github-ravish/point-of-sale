@@ -22,6 +22,8 @@
 					<th scope="col">#</th>
 					<th scope="col">Shop Name</th>
 					<th scope="col">Gross Sales</th>
+					<th scope="col">Net Margin</th>
+					<th scope="col">Gross Profit</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -30,6 +32,8 @@
 					<th scope="row">{{ forloop.counter }}</th>
 					<td>{{ shop.name }}, {{ shop.area }}</td>
 					<td>{{ shop.gross_sales_val }}</td>
+					<td>{{ shop.net_margin }}</td>
+					<td>{{ shop.gross_profit }}</td>
 				</tr>
 				{% endfor %}
 			</tbody>

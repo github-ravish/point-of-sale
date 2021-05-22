@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.db.models import F
 from django.views.generic import (
     CreateView,
     ListView,
@@ -44,7 +45,16 @@ class ShopListView(RoleRequiredMixin, ListView):
         context = super(ShopListView, self).get_context_data(**kwargs)
         shop_list = context['shop_list']
         context['shop_list'] = shop_list.annotate(
-            gross_sales_val=Sum('shop_orders__price')
+            gross_sales_val=Sum('shop_orders__price'),
+            net_margin=Sum(
+                (F('shop_orders__items__product__selling_price') -
+                 F('shop_orders__items__product__cost_price'))
+            ),
+            gross_profit=Sum(
+                (F('shop_orders__items__product__selling_price') -
+                 F('shop_orders__items__product__cost_price')) *
+                F('shop_orders__items__quantity')
+            )
         )
         return context
 
