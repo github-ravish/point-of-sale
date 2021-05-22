@@ -96,3 +96,21 @@ msgstr "आर्डर"
 
 msgid "Dashboard"
 msgstr "डैशबोर्ड"
+
+
+#: Shop List
+
+msgid "Shop Name"
+msgstr "दुकान का नाम"
+
+msgid "Gross Sales"
+msgstr "कुल बिक्री"
+
+msgid "Net Margin"
+msgstr "नेट मार्जिन"
+
+msgid "Gross Profit"
+msgstr "सकल लाभ"
+
+msgid "Register Shop"
+msgstr "दुकान रजिस्टर करें"

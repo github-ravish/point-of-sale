@@ -1,5 +1,6 @@
 {% extends 'app_base.html' %}
 {% load static %}
+{% load i18n %}
 {% load shop_role %}
 
 {% block style %}
@@ -12,7 +13,7 @@
 		{% if request.user|has_shop_role:"Owner" %}
 		<div class="row mb-3">
 			<div class="col-12 text-right">
-				<a class="btn btn-success" href="{% url 'shop:create' %}">Register Shop</a>
+				<a class="btn btn-success" href="{% url 'shop:create' %}">{% trans 'Register Shop' %}</a>
 			</div>
 		</div>
 		{% endif %}
@@ -20,10 +21,10 @@
 			<thead class="thead-dark">
 				<tr>
 					<th scope="col">#</th>
-					<th scope="col">Shop Name</th>
-					<th scope="col">Gross Sales</th>
-					<th scope="col">Net Margin</th>
-					<th scope="col">Gross Profit</th>
+					<th scope="col">{% trans 'Shop Name' %}</th>
+					<th scope="col">{% trans 'Gross Sales' %}</th>
+					<th scope="col">{% trans 'Net Margin' %}</th>
+					<th scope="col">{% trans 'Gross Profit' %}</th>
 				</tr>
 			</thead>
 			<tbody>
