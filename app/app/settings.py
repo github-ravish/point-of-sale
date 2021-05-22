@@ -161,7 +161,8 @@ LANGUAGE_CODE = 'en-us'
 
 LANGUAGES = (
     ('en', _('Englsh')),
-    ('hi', _('Hindi'))
+    ('hi', _('Hindi')),
+    ('kn', _('Kannada')),
 )
 
 LOCALE_PATHS = (
