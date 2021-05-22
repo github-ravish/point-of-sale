@@ -1,33 +1,35 @@
 {% load static %}
+{% load i18n %}
 
 {% block navbar-left %}
-	<div class="navbar-left" id="navbar-left">
-		<nav class="navbar">
+<div class="navbar-left" id="navbar-left">
+	<nav class="navbar">
 
-			<ul class="navbar-nav">
-				<li class="nav-item navbar-left-nav-item">
-					<a class="nav-link nav-hov{% if request.path == '/affiliate/' %} nav-active{% endif %}" href="{% url 'affiliate:home' %}">
-						<i class="fas fa-home home-icon"></i>Home
-					</a>
-				</li>
-				<li class="nav-item navbar-left-nav-item">
-					<a class="nav-link nav-hov" href="{% url 'affiliate:affiliate_reffered_list' %}">Users Reffered</a>
-				</li>
-				<li class="nav-item navbar-left-nav-item">
-					<a class="nav-link nav-hov" href="#">Link 3</a>
-				</li>
-				<li class="nav-item navbar-left-nav-item dropdown">
-					<a class="nav-link nav-hov dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-						Dropdown link
-					</a>
-					<div class="dropdown-menu">
-						<a class="dropdown-item nav-hov" href="#">Link 1</a>
-						<a class="dropdown-item nav-hov" href="#">Link 2</a>
-						<a class="dropdown-item nav-hov" href="#">Link 3</a>
-					</div>
-				</li>
-			</ul>
+		<ul class="navbar-nav">
+			<li class="nav-item navbar-left-nav-item">
+				<a class="nav-link nav-hov{% if request.path == '/affiliate/' %} nav-active{% endif %}"
+					href="{% url 'affiliate:home' %}">
+					<i class="fas fa-home home-icon"></i>Home
+				</a>
+			</li>
+			<li class="nav-item navbar-left-nav-item">
+				<a class="nav-link nav-hov" href="{% url 'affiliate:affiliate_reffered_list' %}">Users Reffered</a>
+			</li>
+			<li class="nav-item navbar-left-nav-item">
+				<a class="nav-link nav-hov" href="#">Link 3</a>
+			</li>
+			<li class="nav-item navbar-left-nav-item dropdown">
+				<a class="nav-link nav-hov dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+					Dropdown link
+				</a>
+				<div class="dropdown-menu">
+					<a class="dropdown-item nav-hov" href="#">Link 1</a>
+					<a class="dropdown-item nav-hov" href="#">Link 2</a>
+					<a class="dropdown-item nav-hov" href="#">Link 3</a>
+				</div>
+			</li>
+		</ul>
 
-		</nav>
-	</div>
+	</nav>
+</div>
 {% endblock navbar-left %}

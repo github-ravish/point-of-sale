@@ -1,0 +1,98 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-05-22 11:12+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: app/settings.py:163
+msgid "Englsh"
+msgstr ""
+
+#: app/settings.py:164
+msgid "Hindi"
+msgstr ""
+
+#: user_account/admin.py:21
+msgid "Personal Info"
+msgstr ""
+
+#: user_account/admin.py:23
+msgid "Permissions"
+msgstr ""
+
+#: user_account/admin.py:26
+msgid "Important dates"
+msgstr ""
+
+#: user_account/forms.py:25
+msgid "First Name"
+msgstr ""
+
+#: user_account/forms.py:33
+msgid "Last Name"
+msgstr ""
+
+#: user_account/forms.py:41 user_account/forms.py:170 user_account/forms.py:264
+msgid "Email"
+msgstr "ईमेल"
+
+#: user_account/forms.py:49
+msgid "Phone"
+msgstr ""
+
+#: user_account/forms.py:58 user_account/forms.py:178
+msgid "Password"
+msgstr ""
+
+#: user_account/forms.py:68
+msgid "Confirm Password"
+msgstr ""
+
+#: user_account/forms.py:206
+msgid "Old password"
+msgstr ""
+
+#: user_account/forms.py:215 user_account/forms.py:299
+msgid "New password"
+msgstr ""
+
+#: user_account/forms.py:225 user_account/forms.py:309
+msgid "Confirm new password"
+msgstr ""
+
+
+
+#: Navbar Top
+msgid "Profile"
+msgstr "प्रोफ़ाइल"
+
+
+msgid "Logout"
+msgstr "लॉग आउट"
+
+
+#: Navbar Left
+msgid "Inventory"
+msgstr "इन्वेंटरी"
+
+
+msgid "Orders"
+msgstr "आर्डर"
+
+
+msgid "Dashboard"
+msgstr "डैशबोर्ड"

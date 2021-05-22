@@ -1,5 +1,6 @@
 {% load static %}
 {% block navbar %}
+{% load i18n %}
 
 <nav class="navbar navbar-expand fixed-top navbar-light bg-light shadow-sm rounded app__top-nav" id="navbar">
 	<a class="app__top-nav-button" onclick="navbarLeftToggle()">
@@ -11,42 +12,33 @@
 	<div class="collapse navbar-expand navbar-collapse" id="navbarNavDropdown">
 		<div class="navbar-nav ml-auto">
 			{% if user.is_authenticated %}
-				<li class="nav-item dropdown">
-					<a class="nav-link app__top-nav-hov dropdown-toggle"
-					id="navbarDropdown"
-					role="button"
-					data-toggle="dropdown"
-					aria-haspopup="true"
-					aria-expanded="false">
-						<span class="app__top-nav-profile-icon material-icons material-icons-outlined">
-							account_circle
-						</span>
-					</a>
-				<div class="dropdown-menu dropdown-menu-right"
-					 aria-labelledby="navbarDropdown">
+			<li class="nav-item dropdown">
+				<a class="nav-link app__top-nav-hov dropdown-toggle" id="navbarDropdown" role="button"
+					data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<span class="app__top-nav-profile-icon material-icons material-icons-outlined">
+						account_circle
+					</span>
+				</a>
+				<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 					<a class="dropdown-item">Page 1</a>
 					<a class="dropdown-item" href="{% url 'user_account:detail_home' %}">
-						<i class="fas fa-cog profile-icon"></i>Profile
+						<i class="fas fa-cog profile-icon"></i>{% trans 'Profile' %}
 					</a>
 					<div class="dropdown-divider"></div>
-					<a class="dropdown-item" href="{% url 'user_account:logout' %}">Logout</a>
+					<a class="dropdown-item" href="{% url 'user_account:logout' %}">{% trans 'Logout' %}</a>
 				</div>
 			</li>
 			{% else %}
-				<li class="nav-item">
-					<a class="nav-link app__top-nav-hov {% if request.path == '/account/signup/' %} app__top-nav-active{% endif %}" 
-						id="app__top-nav-signup-btn"
-						href="{% url 'user_account:create' %}"
-						type="button"
-						name="button">Sign Up</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link app__top-nav-hov {% if request.path == '/account/login/' %} app__top-nav-active{% endif %}" 
-						id="app__top-nav-signin-btn"
-						href="{% url 'user_account:login' %}"
-						type="button"
-						name="button">Login</a>
-				</li>
+			<li class="nav-item">
+				<a class="nav-link app__top-nav-hov {% if request.path == '/account/signup/' %} app__top-nav-active{% endif %}"
+					id="app__top-nav-signup-btn" href="{% url 'user_account:create' %}" type="button" name="button">Sign
+					Up</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link app__top-nav-hov {% if request.path == '/account/login/' %} app__top-nav-active{% endif %}"
+					id="app__top-nav-signin-btn" href="{% url 'user_account:login' %}" type="button"
+					name="button">Login</a>
+			</li>
 			{% endif %}
 		</div>
 	</div>
