@@ -15,24 +15,26 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf.urls.i18n import i18n_patterns
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('account/', include('user_account.urls', namespace='user_account')),
     path('all_auth/', include('allauth.urls')),
 
-    path('', include('static_page.urls', namespace='static_page')),
 ]
 
 
-urlpatterns += [
+urlpatterns += i18n_patterns(
+    path('', include('static_page.urls', namespace='static_page')),
+
     path('shop/', include('shop.urls', namespace='shop')),
     path('product/', include('product.urls', namespace='product')),
     path('order/', include('order.urls', namespace='order')),
     path('transaction/', include('transaction.urls', namespace='transaction')),
-]
+)
 
-urlpatterns += [
+urlpatterns += i18n_patterns(
     path('api/product/', include('product.api.urls', namespace='product_api')),
     path('api/order/', include('order.api.urls', namespace='order_api')),
-]
+)
