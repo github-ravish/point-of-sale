@@ -14,6 +14,8 @@ from shop.models.shop import Shop
 
 
 class ProductCreateView(RoleRequiredMixin, CreateView):
+    """ This view is to create a product """
+
     form_class = ProductModelForm
     template_name = 'product/create.html'
     success_url = 'static_pages:home'
@@ -23,6 +25,12 @@ class ProductCreateView(RoleRequiredMixin, CreateView):
     ]
 
     def form_valid(self, form):
+        """ 
+        This function checks if the form is valid and appends the shopkeepers shop based on shop slug.
+        param: ProductCreateView, form
+        return: form appended with shop..
+        """
+
         shop_slug = self.kwargs.get('shop_slug')
         shop = Shop.custom_manager.get_object_or_none(
             shop_staff__user_account=self.request.user,
